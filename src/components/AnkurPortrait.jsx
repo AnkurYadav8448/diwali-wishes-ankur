@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Sparkles } from 'lucide-react';
 import { useParallax3D } from '../utils/useParallax3D';
 
 export default function AnkurPortrait() {
   const parallax = useParallax3D(10);
+  const [hasImageError, setHasImageError] = useState(false);
+  const portraitSrc = `${import.meta.env.BASE_URL}ankur-portrait.jpeg`;
 
   return (
     <div
@@ -92,18 +94,57 @@ export default function AnkurPortrait() {
               boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.6)'
             }}
           >
-            <img
-              src="/ankur-portrait.jpeg"
-              alt="Ankur - Diwali Wishes Edition 1.0"
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                objectPosition: 'center 16%',
-                display: 'block'
-              }}
-              loading="eager"
-            />
+            {hasImageError ? (
+              <div
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  background: 'radial-gradient(circle, #2E0D40 0%, #12051E 100%)',
+                  color: '#F5E6BE'
+                }}
+              >
+                <span
+                  className="font-serif text-gold-gradient"
+                  style={{
+                    fontSize: 'clamp(2.2rem, 5.5vw, 3rem)',
+                    fontWeight: 800,
+                    lineHeight: 1
+                  }}
+                >
+                  A
+                </span>
+                <span
+                  style={{
+                    fontSize: '0.62rem',
+                    letterSpacing: '0.12em',
+                    textTransform: 'uppercase',
+                    color: '#D4AF37',
+                    marginTop: '2px',
+                    opacity: 0.9
+                  }}
+                >
+                  Ankur
+                </span>
+              </div>
+            ) : (
+              <img
+                src={portraitSrc}
+                alt="Ankur - Diwali Wishes Edition 1.0"
+                onError={() => setHasImageError(true)}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  objectPosition: 'center 16%',
+                  display: 'block'
+                }}
+                loading="eager"
+              />
+            )}
           </div>
 
           {/* Cardinal 3D Golden Jewels */}
