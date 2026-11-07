@@ -1,0 +1,301 @@
+:root {
+  --bg-dark: #050108;
+  --bg-plum: #0E0317;
+  --bg-plum-surface: #170526;
+  --bg-plum-accent: #230838;
+  --bg-card: rgba(18, 5, 29, 0.88);
+  --bg-card-border: rgba(229, 192, 123, 0.24);
+  
+  /* Champagne Gold & Warm Saffron Palette */
+  --gold-champagne: #F5E6BE;
+  --gold-primary: #D4AF37;
+  --gold-rich: #E5B842;
+  --gold-dark: #8C6615;
+  --gold-gradient: linear-gradient(135deg, #FBF3D5 0%, #E5C07B 40%, #B3861B 75%, #6B4D08 100%);
+  --gold-gradient-soft: linear-gradient(135deg, rgba(245, 230, 190, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%);
+  
+  --saffron-warm: #FF7B25;
+  --saffron-deep: #E65100;
+  --orange-glow: rgba(255, 123, 37, 0.28);
+
+  --font-serif: 'Cinzel', Georgia, 'Times New Roman', serif;
+  --font-display: 'Cinzel Decorative', 'Cinzel', serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: var(--bg-dark);
+  color: #F8F5EE;
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Atmospheric 3D Vignette & Plum Nebula Background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at 15% 35%, rgba(95, 14, 105, 0.18) 0%, transparent 50%),
+    radial-gradient(circle at 85% 45%, rgba(120, 18, 110, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 50% 85%, rgba(45, 6, 62, 0.45) 0%, transparent 60%),
+    linear-gradient(180deg, #050108 0%, #0D0315 45%, #040107 100%);
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* Subtle Vignette on Edges */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.85);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #06010B;
+}
+::-webkit-scrollbar-thumb {
+  background: #3B1B54;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-dark);
+}
+
+/* Typography Helpers */
+.font-display {
+  font-family: var(--font-display);
+}
+.font-serif {
+  font-family: var(--font-serif);
+}
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.text-gold-gradient {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(229, 184, 66, 0.22);
+}
+
+.gold-glow {
+  filter: drop-shadow(0 0 14px rgba(229, 184, 66, 0.35));
+}
+
+/* 3D Glassmorphic Cards */
+.card-luxury {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--bg-card-border);
+  box-shadow: 
+    0 20px 50px -10px rgba(0, 0, 0, 0.8),
+    0 0 30px -5px rgba(229, 184, 66, 0.08),
+    inset 0 1px 1px 0 rgba(245, 230, 190, 0.25);
+  border-radius: 20px;
+  position: relative;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+}
+
+.card-luxury:hover {
+  border-color: rgba(229, 184, 66, 0.45);
+  box-shadow: 
+    0 24px 60px -8px rgba(0, 0, 0, 0.85),
+    0 0 40px -5px rgba(229, 184, 66, 0.16),
+    inset 0 1px 2px 0 rgba(245, 230, 190, 0.35);
+}
+
+/* Buttons */
+.btn-gold-primary {
+  background: var(--gold-gradient);
+  color: #170A00;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 9999px;
+  padding: 15px 32px;
+  cursor: pointer;
+  box-shadow: 
+    0 6px 22px rgba(229, 184, 66, 0.35),
+    0 0 12px rgba(255, 123, 37, 0.25),
+    inset 0 1px 1px rgba(255, 255, 255, 0.7);
+  transition: all 0.28s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-gold-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 
+    0 8px 30px rgba(229, 184, 66, 0.5),
+    0 0 20px rgba(255, 123, 37, 0.4),
+    inset 0 1px 2px rgba(255, 255, 255, 0.85);
+}
+
+.btn-gold-primary:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.btn-gold-primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Animations */
+@keyframes flameFlicker {
+  0% {
+    transform: scale(1) rotate(-1deg);
+    opacity: 0.94;
+  }
+  25% {
+    transform: scale(1.05, 0.96) rotate(1.4deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.98, 1.03) rotate(-0.5deg);
+    opacity: 0.92;
+  }
+  75% {
+    transform: scale(1.03, 1.01) rotate(0.8deg);
+    opacity: 0.98;
+  }
+  100% {
+    transform: scale(1) rotate(-1deg);
+    opacity: 0.94;
+  }
+}
+
+@keyframes flameAuraPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.88;
+  }
+}
+
+@keyframes float3D {
+  0%, 100% {
+    transform: translateY(0) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotateX(2deg) rotateY(-1deg);
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes lightSweep {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(200%) rotate(45deg);
+  }
+}
+
+.animate-flame {
+  transform-origin: 50% 90%;
+  animation: flameFlicker 1.8s infinite ease-in-out;
+}
+
+.animate-flame-aura {
+  transform-origin: 50% 50%;
+  animation: flameAuraPulse 2.4s infinite ease-in-out;
+}
+
+.animate-float-3d {
+  animation: float3D 6s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 90s linear infinite;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-flame,
+  .animate-flame-aura,
+  .animate-float-3d,
+  .animate-spin-slow {
+    animation: none !important;
+  }
+}
+
+/* Responsive Containers */
+.container-diwali {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* 360px - 390px Mobile Viewports */
+@media (max-width: 420px) {
+  .container-diwali {
+    padding: 0 12px;
+  }
+  .card-luxury {
+    border-radius: 16px;
+  }
+}
+
+/* 768px Tablet Viewports */
+@media (min-width: 768px) {
+  .container-diwali {
+    padding: 0 24px;
+  }
+}
+
+/* 1366px+ Desktop Viewports */
+@media (min-width: 1366px) {
+  .container-diwali {
+    max-width: 1200px;
+  }
+}

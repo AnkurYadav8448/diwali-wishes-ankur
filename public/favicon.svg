@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <radialGradient id="flameGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFF5B8" />
+      <stop offset="40%" stop-color="#FFA826" />
+      <stop offset="80%" stop-color="#FF4500" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#FF1A00" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="brassBowl" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE885" />
+      <stop offset="45%" stop-color="#D4AF37" />
+      <stop offset="85%" stop-color="#8C6615" />
+      <stop offset="100%" stop-color="#553A04" />
+    </linearGradient>
+  </defs>
+  <!-- Flame Aura -->
+  <circle cx="32" cy="22" r="16" fill="url(#flameGlow)" opacity="0.85" />
+  <!-- Flame Core -->
+  <path d="M32 10 C36 18, 38 23, 35 28 C33 31, 31 31, 29 28 C26 23, 28 18, 32 10 Z" fill="#FFEAA7" />
+  <path d="M32 14 C34 19, 35 23, 33 26 C32 28, 32 28, 31 26 C30 23, 31 19, 32 14 Z" fill="#FFFFFF" />
+  <!-- Diya Bowl -->
+  <path d="M10 32 C14 48, 50 48, 54 32 C54 30, 10 30, 10 32 Z" fill="url(#brassBowl)" />
+  <!-- Diya Rim -->
+  <ellipse cx="32" cy="32" rx="22" ry="4" fill="#E8C15A" />
+  <!-- Diya Base -->
+  <ellipse cx="32" cy="46" rx="10" ry="2.5" fill="#A47B1E" />
+</svg>
